@@ -17,22 +17,22 @@ repo: https://github.com/rlue/jekyll-solana # used in footer
 
 # Objects listed here will appear in the main nav menu.
 # Exceeding four items may cause problems on the desktop (>900px wide) layout.
-nav_menu:
-  - name: Posts
-    url: /
-    icon: /i/icons.svg#posts # icons should be 24x24 px.
-  - name: Projects
-    url: /projects
-    icon: /i/icons.svg#portfolio
-  - name: GitHub
-    url: https://github.com/rlue/
-    icon: /i/icons.svg#github
-    outbound: true      # this key sets a link to open in a new window.
-  - name: Contact
-    scheme: mailto      # these keys enable email obfuscation.
-    handle: hello       # you know, to protect you from bots. (handle and domain
-    domain: github.com  # are separated in case bots crawl GitHub repos, too.)
-    icon: /i/icons.svg#email
+# nav_menu:
+#  - name: Posts
+#    url: /
+#    icon: /i/icons.svg#posts # icons should be 24x24 px.
+#  - name: Projects
+#    url: /projects
+#    icon: /i/icons.svg#portfolio
+#  - name: GitHub
+#    url: https://github.com/rlue/
+#    icon: /i/icons.svg#github
+#    outbound: true      # this key sets a link to open in a new window.
+#  - name: Contact
+#    scheme: mailto      # these keys enable email obfuscation.
+#    handle: hello       # you know, to protect you from bots. (handle and domain
+#    domain: github.com  # are separated in case bots crawl GitHub repos, too.)
+#    icon: /i/icons.svg#email
 
 # Objects listed here will appear on the /projects.html page.
 projects:
