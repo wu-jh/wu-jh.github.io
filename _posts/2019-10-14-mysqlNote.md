@@ -1,4 +1,8 @@
-# mysql笔记
+---
+title: MYSQL笔记
+teaser: 个人使用笔记，并不规范，仅供参考！
+category: mysql
+---
 
 ## 注释
 
