@@ -1,94 +1,135 @@
-# Jekyll Resume Theme
+Solana – a Wholesome, Flat, Sunshiny Jekyll Theme
+===============================================
 
-Live demo at https://jekyll-theme-minimal-resume.netlify.com/
+**Solana** is a theme for the [Jekyll][jk] static site generator. [View the demo][demo].
 
-[![Netlify Status](https://api.netlify.com/api/v1/badges/24d80ae8-c3d9-4645-a6d8-9e97fc8dec3c/deploy-status)](https://app.netlify.com/sites/jekyll-theme-minimal-resume/deploys)
+### Features
 
-# Stack
+* Compatible with GitHub Pages
+* Supports categories & tags
+* Responsive design
+* Lightweight (no jQuery, Bootstrap, etc.) 
+* Obfuscates email addresses for protection against email harvesting bots
+* Comments via outbound links to Reddit
 
-![](https://img.shields.io/badge/jekyll-✓-blue.svg)
-![](https://img.shields.io/badge/html5-✓-blue.svg)
-![](https://img.shields.io/badge/sass-✓-blue.svg)
-![](https://img.shields.io/badge/sweet--scroll-✓-blue.svg)
-![](https://img.shields.io/badge/particle--js-✓-blue.svg)
-![](https://img.shields.io/badge/font--awesome-✓-blue.svg)
-![](https://img.shields.io/badge/devicon-✓-blue.svg)
-![](https://img.shields.io/badge/gulp-✓-blue.svg)
+![](https://raw.githubusercontent.com/rlue/i/master/solana/responsive.gif)
 
-***
+![](https://raw.githubusercontent.com/rlue/i/master/solana/device_mockup.png)
 
-<h3 align="center">Please help this repo with a :star: if you find it useful! :blush:</h3>
+Installation
+------------
 
-***
+### Cloning Solana to your GitHub Pages
 
-# Screenshot
+1. Prepare a [new GitHub repository][new] named after your GitHub Pages address (`<username>.github.io`). Do not initialize with a `README`, `.gitignore`, or license.
+2. Clone this repository:
 
-<p align="center">
-  <img src="https://github.com/murraco/jekyll-theme-minimal-resume/blob/master/screenshot.png" width="90%" />
-</p>
+        $ git clone https://github.com/rlue/jekyll-solana.git
 
-# Quick Setup
+3. Associate your local copy with the GitHub Pages repo you just created:
 
-1. Install Jekyll: `gem install jekyll bundler`
-2. For this repository and clone your fork
-3. Edit `_config.yml` to personalize your site
+        $ cd solana
+        $ git remote rm origin
+        $ git remote add origin https://github.com/<username>/<username>.github.io
 
-# Settings
+4. In `_config.yml`, replace the `baseurl` site variable (`/jekyll-solana`) with an empty string (`''`):
 
-You have to fill some informations on `_config.yml` to customize your site:
+        $ sed -i "s/\/jekyll-solana/''            /" _config.yml     # on UNIX
+        $ sed -i '' "s/\/jekyll-solana/''            /" _config.yml  # on Mac
 
-## Site settings
-```yml
-description: A blog about lorem ipsum dolor sit amet
-baseurl: "" # the subpath of your site, e.g. /blog/
-url: "http://localhost:3000" # the base hostname & protocol for your site
+5. And push:
+
+        $ git push -u origin master
+
+In just a few minutes, your site should be live at https://\<username\>.github.io/!
+
+### Previewing the site on your machine
+
+1. Ensure that you have a Ruby development environment installed on your machine, including [Bundler][bun].
+2. Install the dependencies:
+
+        $ bundle install
+
+3. Start the server: 
+
+        $ bundle exec jekyll serve
+
+You should now have a development preview of your site at http://localhost:4000/.
+
+Usage
+-----
+
+### Customizing the theme
+
+Edit the data in `_config.yml` as appropriate. You’ll also want to rewrite the `README` and replace identifying graphics (`/i/avatar.png`, `/favicon.ico`) with your own.
+
+### Creating new posts
+
+As with any Jekyll site, posts are generated from Markdown files placed in the `_posts` directory, and must be named according to the following format: `<year>-<month>-<day>-<url_slug>.md`. See the sample posts for examples of how to format rich text in Markdown.
+
+Post content must be preceded by [YAML frontmatter][doc-fm] describing, at a minimum, the title of the post. Keep titles under 60 characters, and teasers under 160.
+
+### Categories & Tags
+
+This repository automatically generates “category” and “tag” archive pages based on labels provided by you in each post’s aforementioned YAML frontmatter. This feature is not available through Jekyll itself or the plugins approved for use on GitHub Pages, so it has been implemented using [git hooks][ghk].
+
+To enable this feature, run the following command from the project root:
+
+```
+$ ln -s ../../.scripts/pre-commit.rb .git/hooks/pre-commit
 ```
 
-## User settings
-```yml
-username: Lorem Ipsum
-user_description: Software Engineer at Lorem Ipsum Dolor
-user_title: Mauricio Urraco
-email: mauriurraco@gmail.com
-```
+Now, these scripts will run every time you `git commit`, ensuring that your categories and tags pages always stay up-to-date.
 
-> Don't forget to change your URL before you deploy your site!
+#### Explanation
 
-# Color and Particle Customization
+Solana implements categories and tags as [‘collections’][doc-col], meaning each has its own top-level directory in the project root (`/_category` & `/_tag`). Inside these directories, there is a file representing each category or tag.
 
-- Color Customization
-  - Edit the `.sass` variables
-- Particle Customization
-  - Edit the json data in particle function in `app.js`
-  - Refer to `Particle.js` for help
-  
-# Content
+These files are generated by `/.scripts/spawn_labels.rb`, based on the `category:` and `tags:` attributes listed at the top of each post. The wrapper script `/.scripts/pre-commit.rb` calls this first script, then adds the newly created files to the git repo.
 
-You can (and should) edit the `.html` files for adding your own information, icons, working experience, social links or whatever you want to add. I.e.:
+### Comments
 
-```html
-<a aria-label="My Github" target="_blank" href="https://github.com/murraco">
-  <i class="icon fa fa-github-alt" aria-hidden="true"></i>
-</a>
-```
+As a static site generator, Jekyll has no means to provide a commenting system. For this theme, discussion is outsourced to Reddit, and requires some manual intervention. The process is as follows:
 
-# Running locally
+1. Publish a post.
+2. Post it to Reddit.
+3. Include the resulting Reddit URL in the post’s YAML frontmatter:
 
-In order to compile the assets and run `Jekyll` locally you need to follow those steps:
+        reddit_post: 'https://www.reddit.com/r/Jekyll/comments/6258ln/welcome_to_solana/'
 
-1. Install Jekyll
-2. Run `jekyll build`
-3. Start and http-server in the folder `_site`
+   Now, a link to the Reddit discussion will appear at the end of the post content, before the footnotes (if any).
 
-# Contribution
+   ![](https://raw.githubusercontent.com/rlue/i/master/solana/comments-1.png)
+4. If the post receives noteworthy comments that you would like to embed directly on the page, add their permalinks to the YAML frontmatter as well:
 
-- Report issues
-- Open pull request with improvements
-- Spread the word
-- Reach out to me directly at <mauriurraco@gmail.com>
+        featured_comments:
+          - url: 'https://www.reddit.com/r/Jekyll/comments/6258ln/welcome_to_solana/dfjtxba/'
+            context: false
+            freeze: false
 
-# Donate
+   The `context` flag tells the embed script to include the target comment’s parent. The `freeze` flag prevents live updating in the event that a comment is edited after the fact. Both default to `false`.
 
-`btc: 36V7HqqENSKn6iFCBuE4iCdtB29uGoCKzN`
+   ![](https://raw.githubusercontent.com/rlue/i/master/solana/comments-2.png)
 
-`eth: 0xB419E3E9fa2233383E0877d442e55C34B9C944dD`
+Modifying
+---------
+
+See the official documentation for an overview of [how Jekyll sites are organized][doc-dirs] or [how to get started][doc-qs].
+
+The CSS for this theme was organized following Harry Roberts’ [Inverted Triangle CSS architecture][itcss].
+
+License
+-------
+
+© 2017 Ryan Lue. This project is licensed under the terms of the MIT license.
+
+[jk]: http://jekyllrb.com/
+[demo]: https://solana.ryanlue.com/
+[new]: https://github.com/new
+[bun]: https://github.com/bundler/bundler#installation-and-usage
+[doc-fm]: https://jekyllrb.com/docs/frontmatter/
+[ghk]: http://githooks.com/
+[doc-col]: https://jekyllrb.com/docs/collections/
+[doc-dirs]: https://jekyllrb.com/docs/structure/
+[doc-qs]: https://jekyllrb.com/docs/quickstart/
+[itcss]: https://www.xfive.co/blog/itcss-scalable-maintainable-css-architecture/

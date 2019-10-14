@@ -1,20 +1,88 @@
-# Site settings
-title: Mauricio Urraco
-description: Jekyll Theme Minimal Resume
-# baseurl: "" # the subpath of your site, e.g. /blog
-# url: "localhost:3000" # the base hostname & protocol for your site e.g. http://willianjusten.com.br
+#######################
+# Theme Customization #
+#######################
 
-# User settings
-username: Mauricio Urraco
-user_description: I'm a nomad Software Engineer, always searching for the next challenge; no task is too scary nor too difficult. Lately I have been immersed in the <b>crypto-world</b> working for Radix, a London based startup trying to create the next massive scalable DLT.. I'm one of the two guys behind all the JS related stuff. Visit my blog here":" <a href="https://mauriciourraco.com" target="_blank">https://mauriciourraco.com</a>
-user_title: Software Engineer
-email: mauriurraco@gmail.com
-# twitter_username: lorem_ipsum
-# github_username:  lorem_ipsum
-# gplus_username:  lorem_ipsum
+title: J. Bravo                             # used in <title> tag & site header
+author: Johnny Bravo                        # used in a <meta> tag & /feed.xml
+description: >                              # used in a <meta> tag & /feed.xml
+  Hello 911 emergency, there's a handsome guy in my house!
+  Oh wait a second, cancel that. It's only me.
+slogan: Showtime!                           # used in site header, beside title
+avatar: /i/avatar.png                       # used as portrait in site header
+banner: /i/mountains.svg                    # used as background in site header
+url: http://solana.ryanlue.com              # used by plugins to generate feed.xml and sitemap.xml
+baseurl: ''                                 # prepended to all absolute filepaths
+repo: https://github.com/rlue/jekyll-solana # used in footer
 
-# Google-analytics
-google-analytics:
-  id: ""
+# Objects listed here will appear in the main nav menu.
+# Exceeding four items may cause problems on the desktop (>900px wide) layout.
+nav_menu:
+  - name: Posts
+    url: /
+    icon: /i/icons.svg#posts # icons should be 24x24 px.
+  - name: Projects
+    url: /projects
+    icon: /i/icons.svg#portfolio
+  - name: GitHub
+    url: https://github.com/rlue/
+    icon: /i/icons.svg#github
+    outbound: true      # this key sets a link to open in a new window.
+  - name: Contact
+    scheme: mailto      # these keys enable email obfuscation.
+    handle: hello       # you know, to protect you from bots. (handle and domain
+    domain: github.com  # are separated in case bots crawl GitHub repos, too.)
+    icon: /i/icons.svg#email
 
-exclude: ['package.json', 'src' , 'node_modules']
+# Objects listed here will appear on the /projects.html page.
+projects:
+  - title: Solana
+    teaser: A responsive blog template written in Sass and vanilla JavaScript.
+    url: https://github.com/rlue/jekyll-solana
+    role: Creator
+    category: Frontend Dev
+  - title: Cortana
+    teaser: A talking robot. Now available on Google Play?
+    url: https://play.google.com/store/apps/details?id=com.microsoft.cortana
+    role: Core Team
+    category: NLP
+  - title: Rihanna
+    teaser: Possibly another robot. Also available on Google Play.
+    url: https://play.google.com/store/music/artist/Rihanna?id=Arcw2m2ih45qntv3fufub25tyhu
+    role: Contributor
+    category: Algorithmic Composition
+
+#################
+# Site Settings #
+#################
+
+incremental: true
+exclude:
+  - Gemfile
+  - Gemfile.lock
+  - LICENSE
+  - README.md
+  - TODO.md
+
+permalink: /:collection/:path
+
+collections:
+  category: { output: true }
+  tag:      { output: true }
+
+defaults:
+  - scope:  { type:   posts    }
+    values: { layout: post     }
+  - scope:  { type:   tag      }
+    values: { layout: listing  }
+  - scope:  { type:   category }
+    values: { layout: listing  }
+
+sass:
+  sass_dir: _assets/css
+
+plugins:
+  - jekyll-paginate
+  - jekyll-feed
+  - jekyll-sitemap
+
+paginate: 10
