@@ -1,0 +1,52 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<rss version="2.0"
+  xmlns:atom="http://www.w3.org/2005/Atom"
+  xmlns:dc="http://purl.org/dc/elements/1.1/"
+  xmlns:sy="http://purl.org/rss/1.0/modules/syndication/"
+>
+  <channel>
+    <title>吴江海</title>
+    <description>Hello 911 emergency, there's a handsome guy in my house! Oh wait a second, cancel that. It's only me.
+</description>
+    <sy:updatePeriod>daily</sy:updatePeriod>
+    <sy:updateFrequency>1</sy:updateFrequency>
+    <link>http://localhost:4000</link>
+    <atom:link href="http://localhost:4000/feed.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Tue, 28 Mar 2017 00:00:00 +0800</lastBuildDate>
+    
+    
+      <item>
+        <title>Welcome to Solana</title>
+        <dc:creator>吴江海</dc:creator>
+        
+          <description>These sample posts are provided as a template for creating your own content.</description>
+        
+        <pubDate>Tue, 28 Mar 2017 00:00:00 +0800</pubDate>
+        <link>http://localhost:4000/posts/2017-03-28-welcome-to-solana</link>
+        <guid isPermaLink="true">http://localhost:4000/posts/2017-03-28-welcome-to-solana</guid>
+      </item>
+    
+      <item>
+        <title>Lorem Ipsum Dolor</title>
+        <dc:creator>吴江海</dc:creator>
+        
+          <description>Sit amet, consectetur adipiscing elit. Donec ornare hendrerit nulla, at pharetra sapien posuere vitae.</description>
+        
+        <pubDate>Mon, 27 Mar 2017 00:00:00 +0800</pubDate>
+        <link>http://localhost:4000/posts/2017-03-27-lorem-ipsum-dolor</link>
+        <guid isPermaLink="true">http://localhost:4000/posts/2017-03-27-lorem-ipsum-dolor</guid>
+      </item>
+    
+      <item>
+        <title>Integer Ultricies, Elit Sit Amet</title>
+        <dc:creator>吴江海</dc:creator>
+        
+          <description>Aliquet semper, diam odio sollicitudin ante.</description>
+        
+        <pubDate>Sun, 26 Mar 2017 00:00:00 +0800</pubDate>
+        <link>http://localhost:4000/posts/2017-03-26-integer-ultrices-elit-sit-amet</link>
+        <guid isPermaLink="true">http://localhost:4000/posts/2017-03-26-integer-ultrices-elit-sit-amet</guid>
+      </item>
+    
+  </channel>
+</rss>
