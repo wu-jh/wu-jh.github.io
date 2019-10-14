@@ -68,7 +68,7 @@ permalink: /:collection/:path
 
 collections:
   category: { output: true }
-  tag:      { output: true }
+#  tag:      { output: true }
 
 defaults:
   - scope:  { type:   posts    }
